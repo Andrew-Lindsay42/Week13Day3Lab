@@ -46,4 +46,16 @@ public class WhiskyTrackerApplicationTests {
 		assertEquals(1, found.size());
 		assertEquals("Flora and Fauna", found.get(0).getName());
 	}
+
+	@Test
+	public void canGetAllWhiskiesFromRegion() {
+		List<Whisky> found = whiskyRepository.findByDistilleryRegion("Lowland");
+		assertEquals(4, found.size());
+	}
+
+	@Test
+	public void canGetWhiskiesOfParticularAge() {
+		List<Distillery> found = distilleryRepository.findByWhiskiesAge(12);
+		assertEquals(6, found.size());
+	}
 }
